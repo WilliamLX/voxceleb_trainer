@@ -193,7 +193,7 @@ if __name__ == "__main__":
     augfiles = f.readlines()
     f.close()
 
-    print(args)
+    # print(args
 
     if args.augment:
         download(args, augfiles)
@@ -206,7 +206,7 @@ if __name__ == "__main__":
         download(args, fileparts)
 
     if args.extract:
-        print('extract: ', files)
+        # print('extract: ', files)
         concatenate(args, files)
         for file in files:
             full_extract(args, os.path.join(args.save_path, file.split()[1]))
