@@ -206,6 +206,7 @@ if __name__ == "__main__":
         download(args, fileparts)
 
     if args.extract:
+        print('extract: ', files)
         concatenate(args, files)
         for file in files:
             full_extract(args, os.path.join(args.save_path, file.split()[1]))
