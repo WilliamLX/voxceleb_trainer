@@ -185,6 +185,7 @@ if __name__ == "__main__":
     f = open('lists/fileparts.txt', 'r')
     fileparts = f.readlines()
     f.close()
+    print(fileparts)
 
     f = open('lists/files.txt', 'r')
     files = f.readlines()
