@@ -81,25 +81,26 @@ def download(args, lines):
 
 
 def concatenate(args, lines):
-
+    print('concatenate: ', args, '\n', lines)
     for line in lines:
+        print(line)
         infile = line.split()[0]
         outfile = line.split()[1]
         md5gt = line.split()[2]
-
+        print(infile, outfile, md5gt)
         # Concatenate files
-        out = subprocess.call(
-            'cat %s/%s > %s/%s' % (args.save_path, infile, args.save_path, outfile), shell=True)
+        # out = subprocess.call(
+        #     'cat %s/%s > %s/%s' % (args.save_path, infile, args.save_path, outfile), shell=True)
 
-        # Check MD5
-        md5ck = md5('%s/%s' % (args.save_path, outfile))
-        if md5ck == md5gt:
-            print('Checksum successful %s.' % outfile)
-        else:
-            raise Warning('Checksum failed %s.' % outfile)
+        # # Check MD5
+        # md5ck = md5('%s/%s' % (args.save_path, outfile))
+        # if md5ck == md5gt:
+        #     print('Checksum successful %s.' % outfile)
+        # else:
+        #     raise Warning('Checksum failed %s.' % outfile)
 
-        out = subprocess.call('rm %s/%s' %
-                              (args.save_path, infile), shell=True)
+        # out = subprocess.call('rm %s/%s' %
+        #                       (args.save_path, infile), shell=True)
 
 # ========== ===========
 # Extract zip files
@@ -208,14 +209,14 @@ if __name__ == "__main__":
     if args.extract:
         # print('extract: ', files)
         concatenate(args, files)
-        for file in files:
-            full_extract(args, os.path.join(args.save_path, file.split()[1]))
-        out = subprocess.call('mv %s/dev/aac/* %s/aac/ && rm -r %s/dev' %
-                              (args.save_path, args.save_path, args.save_path), shell=True)
-        out = subprocess.call('mv %s/wav %s/voxceleb1' %
-                              (args.save_path, args.save_path), shell=True)
-        out = subprocess.call('mv %s/aac %s/voxceleb2' %
-                              (args.save_path, args.save_path), shell=True)
+        # for file in files:
+        #     full_extract(args, os.path.join(args.save_path, file.split()[1]))
+        # out = subprocess.call('mv %s/dev/aac/* %s/aac/ && rm -r %s/dev' %
+        #                       (args.save_path, args.save_path, args.save_path), shell=True)
+        # out = subprocess.call('mv %s/wav %s/voxceleb1' %
+        #                       (args.save_path, args.save_path), shell=True)
+        # out = subprocess.call('mv %s/aac %s/voxceleb2' %
+        #                       (args.save_path, args.save_path), shell=True)
 
     if args.convert:
         convert(args)
