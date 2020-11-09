@@ -89,18 +89,18 @@ def concatenate(args, lines):
         md5gt = line.split()[2]
         print(infile, outfile, md5gt)
         # Concatenate files
-        # out = subprocess.call(
-        #     'cat %s/%s > %s/%s' % (args.save_path, infile, args.save_path, outfile), shell=True)
+        out = subprocess.call(
+            'cat %s/%s > %s/%s' % (args.save_path, infile, args.save_path, outfile), shell=True)
 
-        # # Check MD5
-        # md5ck = md5('%s/%s' % (args.save_path, outfile))
-        # if md5ck == md5gt:
-        #     print('Checksum successful %s.' % outfile)
-        # else:
-        #     raise Warning('Checksum failed %s.' % outfile)
+        # Check MD5
+        md5ck = md5('%s/%s' % (args.save_path, outfile))
+        if md5ck == md5gt:
+            print('Checksum successful %s.' % outfile)
+        else:
+            raise Warning('Checksum failed %s.' % outfile)
 
-        # out = subprocess.call('rm %s/%s' %
-        #                       (args.save_path, infile), shell=True)
+        out = subprocess.call('rm %s/%s' %
+                              (args.save_path, infile), shell=True)
 
 # ========== ===========
 # Extract zip files
@@ -193,8 +193,6 @@ if __name__ == "__main__":
     f = open('lists/augment.txt', 'r')
     augfiles = f.readlines()
     f.close()
-
-    # print(args
 
     if args.augment:
         download(args, augfiles)
