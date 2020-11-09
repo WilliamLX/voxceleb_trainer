@@ -207,7 +207,8 @@ if __name__ == "__main__":
     if args.extract:
         # print('extract: ', files)
         concatenate(args, files)
-        # for file in files:
+        for file in files:
+            print(file)
         #     full_extract(args, os.path.join(args.save_path, file.split()[1]))
         # out = subprocess.call('mv %s/dev/aac/* %s/aac/ && rm -r %s/dev' %
         #                       (args.save_path, args.save_path, args.save_path), shell=True)
