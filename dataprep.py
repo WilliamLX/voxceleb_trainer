@@ -202,8 +202,8 @@ if __name__ == "__main__":
         full_extract(args, os.path.join(args.save_path, 'musan.tar.gz'))
         split_musan(args)
 
-    # if args.download:
-    #     download(args, fileparts)
+    if args.download:
+        download(args, fileparts)
 
     if args.extract:
         # print('extract: ', files)
