@@ -208,7 +208,7 @@ if __name__ == "__main__":
 
     if args.extract:
         # print('extract: ', files)
-        concatenate(args, files)
+        # concatenate(args, files)
         for file in files:
             print(file)
         #     full_extract(args, os.path.join(args.save_path, file.split()[1]))
