@@ -111,12 +111,12 @@ def concatenate(args, lines):
 def full_extract(args, fname):
 
     print('Extracting %s' % fname)
-    if fname.endswith(".tar.gz"):
-        with tarfile.open(fname, "r:gz") as tar:
-            tar.extractall(args.save_path)
-    elif fname.endswith(".zip"):
-        with ZipFile(fname, 'r') as zf:
-            zf.extractall(args.save_path)
+    # if fname.endswith(".tar.gz"):
+    #     with tarfile.open(fname, "r:gz") as tar:
+    #         tar.extractall(args.save_path)
+    # elif fname.endswith(".zip"):
+    #     with ZipFile(fname, 'r') as zf:
+    #         zf.extractall(args.save_path)
 
 # ========== ===========
 # Partially extract zip files
@@ -211,7 +211,7 @@ if __name__ == "__main__":
         # concatenate(args, files)
         for file in files:
             print(file)
-        #     full_extract(args, os.path.join(args.save_path, file.split()[1]))
+            full_extract(args, os.path.join(args.save_path, file.split()[1]))
         # out = subprocess.call('mv %s/dev/aac/* %s/aac/ && rm -r %s/dev' %
         #                       (args.save_path, args.save_path, args.save_path), shell=True)
         # out = subprocess.call('mv %s/wav %s/voxceleb1' %
