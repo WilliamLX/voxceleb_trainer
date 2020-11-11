@@ -111,12 +111,12 @@ def concatenate(args, lines):
 def full_extract(args, fname):
 
     print('Extracting %s' % fname)
-    if fname.endswith(".tar.gz"):
-        with tarfile.open(fname, "r:gz") as tar:
-            tar.extractall(args.save_path)
-    elif fname.endswith(".zip"):
-        with ZipFile(fname, 'r') as zf:
-            zf.extractall(args.save_path)
+    # if fname.endswith(".tar.gz"):
+    #     with tarfile.open(fname, "r:gz") as tar:
+    #         tar.extractall(args.save_path)
+    # elif fname.endswith(".zip"):
+    #     with ZipFile(fname, 'r') as zf:
+    #         zf.extractall(args.save_path)
 
 # ========== ===========
 # Partially extract zip files
