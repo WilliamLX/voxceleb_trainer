@@ -81,13 +81,14 @@ def download(args, lines):
 
 
 def concatenate(args, lines):
-    print('concatenate: ', args, '\n', lines)
+    print('concatenate: ')
+    # print('concatenate: ', args, '\n', lines)
     for line in lines:
         print(line)
         infile = line.split()[0]
         outfile = line.split()[1]
         md5gt = line.split()[2]
-        print(infile, outfile, md5gt)
+        # print(infile, outfile, md5gt)
         # Concatenate files
         out = subprocess.call(
             'cat %s/%s > %s/%s' % (args.save_path, infile, args.save_path, outfile), shell=True)
@@ -185,7 +186,7 @@ if __name__ == "__main__":
     f = open('lists/fileparts.txt', 'r')
     fileparts = f.readlines()
     f.close()
-    print(fileparts)
+    # print(fileparts)
 
     f = open('lists/files.txt', 'r')
     files = f.readlines()
