@@ -218,6 +218,7 @@ if __name__ == "__main__":
         #                       (args.save_path, args.save_path), shell=True)
         # out = subprocess.call('mv %s/aac %s/voxceleb2' %
         #                       (args.save_path, args.save_path), shell=True)
+        break
 
     if args.convert:
         convert(args)
